@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package serviceOne;
+
+option java_package = "com.proto.serviceOne";
+option java_multiple_files = true;
+
+service serviceOne {
+    //unary method
+    rpc TakePicture(TakePictureRequest) returns (TakePictureResponse) {}
+    //bidirectional streaming
+    rpc StreamMotionEvents(stream MotionEvent) returns (stream Alert) {}
+    }
+
+message TakePictureRequest {
+  string image = 1;
+  string camera = 2;
+}
+
+message TakePictureResponse {
+  string result = 1;
+
+}
+
+message MotionEvent {
+  int64 timestamp = 1;
+  bool motion_detected = 2;
+}
+
+message Alert {
+  int64 timestamp = 1;
+  string message = 2;
+}
