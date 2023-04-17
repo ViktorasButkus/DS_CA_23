@@ -1,10 +1,11 @@
 package serviceOneClientAndServer.client;
 
-import com.proto.serviceOne.TakePictureRequest;
-import com.proto.serviceOne.TakePictureResponse;
-import com.proto.serviceOne.serviceOneGrpc;
+import com.proto.serviceOne.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.stub.StreamObserver;
+
+import java.util.concurrent.CountDownLatch;
 
 public class serviceOneClient {
 
@@ -14,6 +15,14 @@ public class serviceOneClient {
         TakePictureResponse response = stub.takePicture(TakePictureRequest.newBuilder().setCamera("Front door").build());
 
         System.out.println("Camera sending photos: " +response.getResult());
+    }
+
+    private static void doStreamMotionEvents(ManagedChannel channel) {
+        System.out.println("Enter doMotionEvent");
+        serviceOneGrpc.serviceOneBlockingStub stub = serviceOneGrpc.newBlockingStub(channel);
+        CountDownLatch latch = new CountDownLatch(1);
+
+        StreamObserver <MotionEvent> stream = stub.streamMotionEvents()
     }
 
     public static void main(String[] args) {
@@ -30,6 +39,7 @@ public class serviceOneClient {
 
         switch (args[0]) {
             case "takePicture": doTakePicture(channel); break;
+            case "motionEvent": doStreamMotionEvents(channel);break;
             default:
                 System.out.println("keyword invalid- " + args[0]);
         }
