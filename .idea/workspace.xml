@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/distributedSystems/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/proto/serviceOneCameraSystem/serviceOneCameraSystem.proto" afterDir="false" />
-    </list>
+    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Proto files and service one - unary method set up" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,6 +148,18 @@
       <option name="presentableId" value="Default" />
       <updated>1681726723103</updated>
     </task>
+    <task id="LOCAL-00001" summary="Proto files and service one - unary method set up">
+      <created>1681741848533</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681741848533</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Proto files and service one - unary method set up" />
+    <option name="LAST_COMMIT_MESSAGE" value="Proto files and service one - unary method set up" />
   </component>
 </project>
