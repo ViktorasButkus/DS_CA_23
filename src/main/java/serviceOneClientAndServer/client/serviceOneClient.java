@@ -22,7 +22,8 @@ public class serviceOneClient {
         serviceOneGrpc.serviceOneBlockingStub stub = serviceOneGrpc.newBlockingStub(channel);
         CountDownLatch latch = new CountDownLatch(1);
 
-        StreamObserver <MotionEvent> stream = stub.streamMotionEvents()
+       // StreamObserver <MotionEvents> stream = stub.streamMotionEvents(new StreamObserver<Alert> () { }
+
     }
 
     public static void main(String[] args) {

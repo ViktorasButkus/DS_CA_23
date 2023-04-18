@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package serviceThree;
+
+option java_package = "com.proto.serviceThree";
+option java_multiple_files = true;
+
+service SensorSystemService {
+  //Unary -  activate and deactivate sensors
+  rpc ActivateSensors(ActivateSensorsRequest) returns (ActivateSensorsResponse) {}
+
+  //Client streaming - senors continue to send information to the server about any movement they detect
+  rpc DetectMotion(stream DetectMotionRequest) returns (DetectMotionResponse) {}
+}
+
+message ActivateSensorsRequest {
+  // A boolean indicating whether to activate or deactivate the sensors.
+  bool activate = 1;
+}
+
+message ActivateSensorsResponse {
+  // A confirmation message indicating that the sensors have been activated or
+  // deactivated as requested.
+  string message = 1;
+}
+
+message DetectMotionRequest {
+  // The current sensor data, including the sensor ID and a boolean indicating whether
+  // motion has been detected.
+  string sensor_id = 1;
+  bool motion_detected = 2;
+}
+
+message DetectMotionResponse {
+  // An alert message triggered by the sensors.
+  string alert_message = 1;
+}

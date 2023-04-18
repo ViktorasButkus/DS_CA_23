@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Proto files and service one - unary method set up">
+    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Proto files and service one - bidirectional streaming setup">
+      <change afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/client/serviceThreeClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/serviceThreeServerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/client/serviceTwoClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/proto/serviceThreeSensorSystem/serviceThreeSensorSystem.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/proto/serviceTwoAlertSystem/serviceTwoAlertSystem.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/client/serviceOneClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/client/serviceOneClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +50,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="DS_CA_23" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="DS_CA_23" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="other" type="c8890929:TasksNode$1" />
               </path>
             </expand>
@@ -64,18 +79,20 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2OY9bsA1DOs0mg8hgZ1wxy5R3mW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Gradle.DS_CA_23 [generateProto]">
     <configuration name="BoilerPlateServer" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
@@ -96,6 +113,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ServiceTwoServer" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="serviceTwoClientandServer.server.ServiceTwoServer" />
+      <module name="DS_CA_23.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="doStreamAlertsServerStreamingClient" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="serviceTwoClientandServer.client.serviceTwoClient" />
+      <module name="DS_CA_23.main" />
+      <option name="PROGRAM_PARAMETERS" value="streamAlerts" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="serviceOneClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="serviceOneClientAndServer.client.serviceOneClient" />
       <module name="DS_CA_23.main" />
@@ -108,6 +144,48 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="DS_CA_23 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="DS_CA_23 [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="DS_CA_23 [generateProto]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -131,14 +209,20 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.ServiceTwoServer" />
+      <item itemvalue="Application.doStreamAlertsServerStreamingClient" />
       <item itemvalue="Application.ServiceOneClient_takePicture" />
       <item itemvalue="Application.BoilerPlateServer" />
       <item itemvalue="Application.serviceOneClient" />
+      <item itemvalue="Gradle.DS_CA_23 [build]" />
+      <item itemvalue="Gradle.DS_CA_23 [clean]" />
       <item itemvalue="Gradle.DS_CA_23 [generateProto]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.DS_CA_23 [generateProto]" />
+        <item itemvalue="Gradle.DS_CA_23 [build]" />
+        <item itemvalue="Gradle.DS_CA_23 [clean]" />
         <item itemvalue="Application.serviceOneClient" />
       </list>
     </recent_temporary>
@@ -166,11 +250,19 @@
       <option name="project" value="LOCAL" />
       <updated>1681742056414</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Proto files and service one - bidirectional streaming setup">
+      <created>1681747597610</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681747597610</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Proto files and service one - unary method set up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Proto files and service one - unary method set up" />
+    <MESSAGE value="Proto files and service one - bidirectional streaming setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Proto files and service one - bidirectional streaming setup" />
   </component>
 </project>

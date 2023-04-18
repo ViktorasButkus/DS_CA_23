@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package serviceTwo;
+
+option java_package = "com.proto.serviceTwo";
+option java_multiple_files = true;
+
+
+service AlertSystemService {
+
+  //unary
+  rpc ActivateAlerts(ActivateAlertsRequest) returns (ActivateAlertsResponse) {}
+
+  //server streaming
+  rpc StreamAlerts(StreamAlertsRequest) returns (stream StreamAlertsResponse) {}
+}
+
+message ActivateAlertsRequest {
+
+  bool activate = 1;
+}
+
+message ActivateAlertsResponse {
+
+  string message = 1;
+}
+
+message StreamAlertsRequest {
+
+  int32 duration_seconds = 1;
+}
+
+message StreamAlertsResponse {
+
+  string alert_message = 1;
+}
