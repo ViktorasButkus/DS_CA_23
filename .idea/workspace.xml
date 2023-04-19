@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Proto files and service one - bidirectional streaming setup">
-      <change afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/client/serviceThreeClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/serviceThreeServerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/client/serviceTwoClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/proto/serviceThreeSensorSystem/serviceThreeSensorSystem.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/proto/serviceTwoAlertSystem/serviceTwoAlertSystem.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Service three partial setup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/client/serviceOneClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/client/serviceOneClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/client/serviceThreeClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/client/serviceThreeClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/serviceThreeServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/serviceThreeServerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,12 +248,20 @@
       <option name="project" value="LOCAL" />
       <updated>1681747597610</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Service three partial setup">
+      <created>1681838284317</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681838284317</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Proto files and service one - unary method set up" />
     <MESSAGE value="Proto files and service one - bidirectional streaming setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Proto files and service one - bidirectional streaming setup" />
+    <MESSAGE value="Service three partial setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Service three partial setup" />
   </component>
 </project>
