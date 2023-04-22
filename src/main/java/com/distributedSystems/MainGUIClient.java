@@ -12,9 +12,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.proto.serviceOne.*;
 import com.proto.serviceThree.*;
-import com.proto.serviceTwo.ActivateAlertsRequest;
-import com.proto.serviceTwo.ActivateAlertsResponse;
-import com.proto.serviceTwo.AlertSystemServiceGrpc;
+import com.proto.serviceTwo.*;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -27,14 +25,15 @@ public class MainGUIClient implements ActionListener {
     private JTextField entry1, reply1;
 
     //Service 1 - bidirectional - streamMotionEvents
-    private JCheckBox entry2;
+
+    private JSlider entry2;
     private JTextField reply2;
 
     //Service 2 - unary - activateAlerts
     private JCheckBox entry3;
     private JTextField reply3;
 
-    //Service 2 - server stream - streamAlerts
+    //Service 2 - server stream - streamAlerts2
     private JTextField entry4, reply4;
 
     //Service 3 - unary - activateSensors
@@ -87,11 +86,15 @@ public class MainGUIClient implements ActionListener {
 
         BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
 
-        JLabel label = new JLabel("Check for true:");
-        panel.add(label);
+        JLabel zoomlabel = new JLabel(" Zoom level ");
+        panel.add(zoomlabel);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
-        entry2 = new JCheckBox();
+        entry2 = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);
+        entry2.setMajorTickSpacing(1);
+        entry2.setPaintTicks(true);
+        entry2.setPaintLabels(true);
         panel.add(entry2);
+
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
 
         JButton button = new JButton("Invoke Service 1 (Bidirectional)");
@@ -146,10 +149,10 @@ public class MainGUIClient implements ActionListener {
 
         BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
 
-        JLabel label = new JLabel("Service 2: Enter value");
+        JLabel label = new JLabel("Enter a Location: ");
         panel.add(label);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
-        entry4 = new JTextField("", 10);
+        entry4 = new JTextField();
         panel.add(entry4);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
 
@@ -311,7 +314,8 @@ public class MainGUIClient implements ActionListener {
                 @Override
                 public void onNext(Alert response) {
 
-                    reply2.setText(response.getMessage());
+                    reply2.setText(response.getCameraFrame());
+
                 }
 
                 @Override
@@ -324,19 +328,24 @@ public class MainGUIClient implements ActionListener {
 
                 }
             });
-            // Parse the user input to a boolean value and send it to the server
-            boolean motionDetected = entry2.isSelected();
-            MotionEvent motionEvent = MotionEvent.newBuilder().setMotionDetected(motionDetected).build();
-            stream.onNext(motionEvent);
 
-            // Wait for the server to complete the streaming response
-            try {
-                latch.await();
-            } catch (InterruptedException d) {
-                d.printStackTrace();
-            }
+            // Create an event with the current zoom value
+            MotionEvent event = MotionEvent.newBuilder().setZoom(entry2.getValue()).build();
 
+            // Send the event to the server
+            stream.onNext(event);
+
+            // Wait for user to change zoom value and update the event accordingly
+            entry2.addChangeListener(s -> {
+                MotionEvent newEvent = MotionEvent.newBuilder().setZoom(entry2.getValue()).build();
+                stream.onNext(newEvent);
+            });
+
+            // Indicate that we have completed sending events
             stream.onCompleted();
+
+
+
 
         } else if (label.equals("Invoke Service 2 (Unary)")) {
             System.out.println("Service 2 Unary to be invoked ...");
@@ -344,8 +353,7 @@ public class MainGUIClient implements ActionListener {
             ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50052).usePlaintext().build();
             AlertSystemServiceGrpc.AlertSystemServiceBlockingStub stub = AlertSystemServiceGrpc.newBlockingStub(channel);
 
-
-            //preparing message to send
+           //preparing message to send
             ActivateAlertsRequest request = ActivateAlertsRequest.newBuilder().setActivate(entry3.isSelected()).build();
 
             //retrieving reply from service
@@ -359,13 +367,16 @@ public class MainGUIClient implements ActionListener {
             ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50052).usePlaintext().build();
             AlertSystemServiceGrpc.AlertSystemServiceBlockingStub stub = AlertSystemServiceGrpc.newBlockingStub(channel);
 
-            //preparing message to send
-            ActivateAlertsRequest request = ActivateAlertsRequest.newBuilder().setActivate(entry4.isValid()).build();
+            StreamAlertsRequest request = StreamAlertsRequest.newBuilder()
+                    .setLocation(entry4.getText())
+                    .build();
 
-            //retrieving reply from service
-            ActivateAlertsResponse response = stub.activateAlerts(request);
+            // Call the server streaming RPC method
+            stub.streamAlerts(request).forEachRemaining(response -> {
+                reply4.setText(response.getAlertMessage());
 
-            reply4.setText(String.valueOf(response.getMessage()));
+            });
+
 
         } else if (label.equals("Invoke Service 3 (Unary)")) {
             System.out.println("Service 3 Unary to be invoked ...");
@@ -393,7 +404,6 @@ public class MainGUIClient implements ActionListener {
             boolean sensor2Activate= entry7.isSelected();
             boolean sensor3Activate = entry8.isSelected();
 
-            System.out.println("three checkboxes set");
 
             //preparing message to send
             DetectMotionRequest request = DetectMotionRequest.newBuilder()
@@ -402,7 +412,6 @@ public class MainGUIClient implements ActionListener {
                     .setSensor3Activated(sensor3Activate)
                     .build();
 
-            System.out.println("request built");
             //retrieving reply from service
             CountDownLatch latch = new CountDownLatch(1);
             StreamObserver<DetectMotionRequest> stream = stub.detectMotion(new StreamObserver<>() {
@@ -412,9 +421,6 @@ public class MainGUIClient implements ActionListener {
                 public void onNext(DetectMotionResponse response) {
 
                     reply6.setText(response.getAlertMessage());
-
-                    System.out.println("reply set");
-
 
                 }
 

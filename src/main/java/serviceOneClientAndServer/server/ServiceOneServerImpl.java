@@ -16,14 +16,24 @@ public class ServiceOneServerImpl extends serviceOneGrpc.serviceOneImplBase{
     }
 
 
-    //Bidirectional - return a response each time we receive a request
+    //Bidirectional - creating a zoom slider to zoom in and out on a camera
     @Override
     public StreamObserver<MotionEvent> streamMotionEvents(StreamObserver<Alert> responseObserver) {
 
         return new StreamObserver<MotionEvent>() {
             @Override
             public void onNext(MotionEvent request) {
-                responseObserver.onNext(Alert.newBuilder().setMessage("Motion detected: " + request.getMotionDetected()).build());
+
+                String message;
+                if (request.getZoom() < 5) {
+                    message = "Zoomed out image";
+
+                } else if (request.getZoom() > 5) {
+                    message = "Zoomed in image ";
+                } else {
+                    message = "No change to image";
+                }
+                responseObserver.onNext(Alert.newBuilder().setCameraFrame(message).build());
             }
 
             @Override
