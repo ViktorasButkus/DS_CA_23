@@ -1,4 +1,6 @@
-/*package serviceTwoClientandServer.client;
+/* FIRST MADE SEPARATE CLIENTS TO TEST THE RPC METHODS - LEFT IN TO SHOW WORK - NORMALLY WOULD DELETE
+
+package serviceTwoClientandServer.client;
 
 import com.proto.serviceTwo.*;
 import io.grpc.ManagedChannel;

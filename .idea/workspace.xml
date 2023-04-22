@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Services issues fixed - minor errors">
+    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="GUI created">
+      <change afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/serverOneBiDirectionalServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/distributedSystems/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/distributedSystems/MainGUIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/distributedSystems/MainGUIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/distributedSystems/MainGUIClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/client/serviceOneClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/client/serviceOneClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/client/serviceThreeClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/client/serviceThreeClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/serviceThreeServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/serviceThreeServerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/client/serviceTwoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/client/serviceTwoClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/serviceOneCameraSystem/serviceOneCameraSystem.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/serviceOneCameraSystem/serviceOneCameraSystem.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/proto/serviceThreeSensorSystem/serviceThreeSensorSystem.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/serviceThreeSensorSystem/serviceThreeSensorSystem.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +111,24 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerOneBiDirectional" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="serviceOneClientAndServer.server.serverOneBiDirectionalServer" />
+      <module name="DS_CA_23.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerThree" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="serviceThreeClientAndServer.server.ServiceThreeServer" />
+      <module name="DS_CA_23.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -257,6 +279,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.ServerThree" />
       <item itemvalue="Application.s2activatalerts" />
       <item itemvalue="Application.dosStreamAlertsNew" />
       <item itemvalue="Application.streamAlerts" />
@@ -265,6 +288,7 @@
       <item itemvalue="Application.doStreamAlertsServerStreamingClient" />
       <item itemvalue="Application.ServiceOneClient_takePicture" />
       <item itemvalue="Application.BoilerPlateServer" />
+      <item itemvalue="Application.ServerOneBiDirectional" />
       <item itemvalue="Application.MainGUIClient" />
       <item itemvalue="Application.serviceOneClient" />
       <item itemvalue="Gradle.DS_CA_23 [build]" />
@@ -274,8 +298,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainGUIClient" />
-        <item itemvalue="Gradle.DS_CA_23 [generateProto]" />
         <item itemvalue="Gradle.DS_CA_23 [build]" />
+        <item itemvalue="Gradle.DS_CA_23 [generateProto]" />
         <item itemvalue="Gradle.DS_CA_23 [clean]" />
         <item itemvalue="Application.serviceOneClient" />
       </list>
@@ -332,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682158110177</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="GUI created">
+      <created>1682169730537</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682169730537</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -341,7 +372,8 @@
     <MESSAGE value="Service three partial setup" />
     <MESSAGE value="Service three remaining setup" />
     <MESSAGE value="Services issues fixed - minor errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Services issues fixed - minor errors" />
+    <MESSAGE value="GUI created" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI created" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

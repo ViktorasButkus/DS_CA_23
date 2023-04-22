@@ -1,4 +1,5 @@
-/*package serviceThreeClientAndServer.client;
+/* FIRST MADE SEPARATE CLIENTS TO TEST THE RPC METHODS - LEFT IN TO SHOW WORK - NORMALLY WOULD DELETE
+package serviceThreeClientAndServer.client;
 
 import com.proto.serviceThree.*;
 

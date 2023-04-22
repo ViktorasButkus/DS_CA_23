@@ -28,11 +28,13 @@ public class ServiceOneServerImpl extends serviceOneGrpc.serviceOneImplBase{
 
             @Override
             public void onError(Throwable t) {
+
                 responseObserver.onError(t);
             }
 
             @Override
             public void onCompleted() {
+
                 responseObserver.onCompleted();
             }
         };

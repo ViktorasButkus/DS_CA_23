@@ -1,4 +1,5 @@
-/*package serviceOneClientAndServer.client;
+/* FIRST MADE SEPARATE CLIENTS TO TEST THE RPC METHODS - LEFT IN TO SHOW WORK - NORMALLY WOULD DELETE
+package serviceOneClientAndServer.client;
 
 import com.proto.serviceOne.*;
 import io.grpc.ManagedChannel;

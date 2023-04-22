@@ -9,12 +9,21 @@ import io.grpc.stub.StreamObserver;
 
 public class ServiceTwoServerImpl extends AlertSystemServiceGrpc.AlertSystemServiceImplBase {
 
-    //Unary
+    //Unary - Alert is activated or deactivated
     @Override
     public void activateAlerts(ActivateAlertsRequest request, StreamObserver<ActivateAlertsResponse> responseObserver) {
 
+        String message;
+        //If the checkbox is ticked it is true and alerts have been activated
+        //If checkbox is left unticked, it is fast and alerts have been deactivated
+         if (request.getActivate()) {
+                message = "Alerts have been activated";
+         } else {
+             message = "Alerts have been deactivated";
+         }
+
         //Setting up the response to send to the client
-        responseObserver.onNext(ActivateAlertsResponse.newBuilder().setMessage("Alert message incoming: " + request.getActivate()).build());
+        responseObserver.onNext(ActivateAlertsResponse.newBuilder().setMessage(message).build());
         responseObserver.onCompleted();
     }
 

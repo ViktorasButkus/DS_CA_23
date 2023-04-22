@@ -19,13 +19,16 @@ message ActivateSensorsRequest {
 }
 
 message ActivateSensorsResponse {
-  // deactivated as requested.
+  // message displaying activated/deactivated
   string message = 1;
 }
 
 message DetectMotionRequest {
-  // motion has been detected.
-  bool motion_detected = 2;
+
+  bool sensor1Activated = 1;
+  bool sensor2Activated = 2;
+  bool sensor3Activated = 3;
+
 }
 
 message DetectMotionResponse {
