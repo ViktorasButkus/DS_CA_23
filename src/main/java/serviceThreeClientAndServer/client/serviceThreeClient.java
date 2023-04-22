@@ -1,4 +1,4 @@
-package serviceThreeClientAndServer.client;
+/*package serviceThreeClientAndServer.client;
 
 import com.proto.serviceThree.*;
 
@@ -85,3 +85,4 @@ public class serviceThreeClient {
         channel.shutdown();
     }
 }
+*/

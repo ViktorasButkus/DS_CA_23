@@ -1,4 +1,4 @@
-package serviceOneClientAndServer.client;
+/*package serviceOneClientAndServer.client;
 
 import com.proto.serviceOne.*;
 import io.grpc.ManagedChannel;
@@ -72,3 +72,5 @@ public class serviceOneClient {
         channel.shutdown();
     }
 }
+
+*/

@@ -13,7 +13,6 @@ service serviceOne {
     }
 
 message TakePictureRequest {
-  string image = 1;
   string camera = 2;
 }
 
@@ -23,11 +22,9 @@ message TakePictureResponse {
 }
 
 message MotionEvent {
-  int64 timestamp = 1;
   bool motion_detected = 2;
 }
 
 message Alert {
-  int64 timestamp = 1;
   string message = 2;
 }

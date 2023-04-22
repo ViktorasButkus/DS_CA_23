@@ -1,4 +1,4 @@
-package serviceTwoClientandServer.client;
+/*package serviceTwoClientandServer.client;
 
 import com.proto.serviceTwo.*;
 import io.grpc.ManagedChannel;
@@ -53,3 +53,4 @@ public class serviceTwoClient {
         channel.shutdown();
     }
 }
+*/

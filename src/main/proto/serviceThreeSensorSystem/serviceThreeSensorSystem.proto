@@ -19,15 +19,12 @@ message ActivateSensorsRequest {
 }
 
 message ActivateSensorsResponse {
-  // A confirmation message indicating that the sensors have been activated or
   // deactivated as requested.
   string message = 1;
 }
 
 message DetectMotionRequest {
-  // The current sensor data, including the sensor ID and a boolean indicating whether
   // motion has been detected.
-  string sensor_id = 1;
   bool motion_detected = 2;
 }
 
