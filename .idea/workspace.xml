@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Service three partial setup">
+    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Service three remaining setup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/client/serviceThreeClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/client/serviceThreeClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/serviceThreeServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/serviceThreeServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/client/serviceOneClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/client/serviceOneClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/client/serviceTwoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/client/serviceTwoClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/serviceTwoAlertSystem/serviceTwoAlertSystem.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/serviceTwoAlertSystem/serviceTwoAlertSystem.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +88,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.DS_CA_23 [generateProto]">
+  <component name="RunManager" selected="Application.streamAlerts">
     <configuration name="BoilerPlateServer" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -123,6 +127,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="dosStreamAlertsNew" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="serviceTwoClientandServer.client.serviceTwoClient" />
+      <module name="DS_CA_23.main" />
+      <option name="PROGRAM_PARAMETERS" value="streamAlerts" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="s2activatalerts" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="serviceTwoClientandServer.client.serviceTwoClient" />
+      <module name="DS_CA_23.main" />
+      <option name="PROGRAM_PARAMETERS" value="activateAlerts" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="serviceOne- motionevents" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="serviceOneClientAndServer.client.serviceOneClient" />
+      <module name="DS_CA_23.main" />
+      <option name="PROGRAM_PARAMETERS" value="motionEvent" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="serviceOneClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="serviceOneClientAndServer.client.serviceOneClient" />
       <module name="DS_CA_23.main" />
@@ -132,6 +166,16 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="streamAlerts" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="serviceTwoClientandServer.client.serviceTwoClient" />
+      <module name="DS_CA_23.main" />
+      <option name="PROGRAM_PARAMETERS" value="streamAlerts" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -200,6 +244,10 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.s2activatalerts" />
+      <item itemvalue="Application.dosStreamAlertsNew" />
+      <item itemvalue="Application.streamAlerts" />
+      <item itemvalue="Application.serviceOne- motionevents" />
       <item itemvalue="Application.ServiceTwoServer" />
       <item itemvalue="Application.doStreamAlertsServerStreamingClient" />
       <item itemvalue="Application.ServiceOneClient_takePicture" />
@@ -255,13 +303,31 @@
       <option name="project" value="LOCAL" />
       <updated>1681838284317</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Service three remaining setup">
+      <created>1681886218560</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681886218560</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Proto files and service one - unary method set up" />
     <MESSAGE value="Proto files and service one - bidirectional streaming setup" />
     <MESSAGE value="Service three partial setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Service three partial setup" />
+    <MESSAGE value="Service three remaining setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Service three remaining setup" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="io.grpc.StatusRuntimeException" package="io.grpc" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

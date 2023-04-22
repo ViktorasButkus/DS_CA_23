@@ -27,7 +27,7 @@ message ActivateAlertsResponse {
 
 message StreamAlertsRequest {
 
-  int32 duration_seconds = 1;
+  int32 seconds = 1;
 }
 
 message StreamAlertsResponse {

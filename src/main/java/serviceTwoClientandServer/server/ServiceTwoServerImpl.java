@@ -20,18 +20,13 @@ public class ServiceTwoServerImpl extends AlertSystemServiceGrpc.AlertSystemServ
 
     //server streaming
     @Override
-    public void streamAlerts(StreamAlertsRequest request, StreamObserver<StreamAlertsResponse> responseObserver) {
+    public void streamAlerts(StreamAlertsRequest request, StreamObserver<StreamAlertsResponse> responseObserver){
+        StreamAlertsResponse response = StreamAlertsResponse.newBuilder().setAlertMessage("Alert happened").build();
 
-        StreamAlertsResponse response = StreamAlertsResponse.newBuilder().setAlertMessage("Alarm alert duration: " + request.getDurationSeconds()).build();
-
-        for (int i =0; i<10; i++){
+        for (int i = 0; i< 10; ++i) {
             responseObserver.onNext(response);
         }
 
-
         responseObserver.onCompleted();
-
     }
-
-
 }

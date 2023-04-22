@@ -1,11 +1,9 @@
 package serviceTwoClientandServer.client;
 
-import com.proto.serviceTwo.ActivateAlertsRequest;
-import com.proto.serviceTwo.ActivateAlertsResponse;
-import com.proto.serviceTwo.StreamAlertsRequest;
-import com.proto.serviceTwo.AlertSystemServiceGrpc;
+import com.proto.serviceTwo.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.stub.StreamObserver;
 
 public class serviceTwoClient {
 
@@ -17,16 +15,19 @@ public class serviceTwoClient {
         System.out.println("Alert message: " +response.getMessage());
     }
 
-    private static void doStreamAlerts(ManagedChannel channel) {
+    private static void doStreamAlerts(ManagedChannel channel){
         System.out.println("Enter doStreamAlerts");
+
         AlertSystemServiceGrpc.AlertSystemServiceBlockingStub stub = AlertSystemServiceGrpc.newBlockingStub(channel);
 
-        stub.streamAlerts(StreamAlertsRequest.newBuilder().build()).forEachRemaining(streamAlertsResponse -> {
-            System.out.println(streamAlertsResponse.getAlertMessage());
+        stub.streamAlerts(StreamAlertsRequest.newBuilder().setSeconds(6).build()).forEachRemaining(response -> {
+
+            System.out.println(response.getAlertMessage());
         });
 
 
     }
+
 
     public static void main(String[] args) {
 

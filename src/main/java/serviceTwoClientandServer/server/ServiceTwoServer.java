@@ -2,7 +2,7 @@ package serviceTwoClientandServer.server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-import serviceOneClientAndServer.server.ServiceOneServerImpl;
+
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ public class ServiceTwoServer {
         //builds the server on the port specified above
         Server server = ServerBuilder
                 .forPort(port)
-                .addService(new ServiceOneServerImpl())
+                .addService(new ServiceTwoServerImpl())
                 .build();
 
         server.start();
