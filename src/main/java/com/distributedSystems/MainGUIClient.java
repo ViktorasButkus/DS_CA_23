@@ -149,7 +149,7 @@ public class MainGUIClient implements ActionListener {
 
         BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.X_AXIS);
 
-        JLabel label = new JLabel("Enter a Location: ");
+        JLabel label = new JLabel("Enter Location (Door, Window, Garden): ");
         panel.add(label);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
         entry4 = new JTextField();
@@ -202,7 +202,7 @@ public class MainGUIClient implements ActionListener {
     }
 
     //SERVICE 3 - SENSOR SYSTEM
-    //CLIENT STREAMING - DETECT MOTION (to simulate - sensor id and motion detected true/false, message to specify sensor activated)
+    //CLIENT STREAMING - DETECT MOTION (to simulate - motion detected true/false, message to specify sensor activated)
     private JPanel getService3ClientStreamJPanel() {
 
         JPanel panel = new JPanel();
@@ -364,7 +364,7 @@ public class MainGUIClient implements ActionListener {
         } else if (label.equals("Invoke Service 2 (Server Stream)")) {
             System.out.println("Service 2 Unary to be invoked ...");
 
-            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50052).usePlaintext().build();
+            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50055).usePlaintext().build();
             AlertSystemServiceGrpc.AlertSystemServiceBlockingStub stub = AlertSystemServiceGrpc.newBlockingStub(channel);
 
             StreamAlertsRequest request = StreamAlertsRequest.newBuilder()
@@ -396,7 +396,7 @@ public class MainGUIClient implements ActionListener {
         } else if (label.equals("Invoke Service 3 (Client Stream)")) {
             System.out.println("Service 3 Client Stream to be invoked ...");
 
-            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50053).usePlaintext().build();
+            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50056).usePlaintext().build();
             SensorSystemServiceGrpc.SensorSystemServiceStub stub = SensorSystemServiceGrpc.newStub(channel);
 
             // Get the state of the three checkboxes

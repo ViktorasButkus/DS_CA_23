@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Updating services and GUI">
+    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Final update to services and gui&#10;All services and gui work as expected">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/distributedSystems/MainGUIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/distributedSystems/MainGUIClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/serviceThreeServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/serviceThreeServerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/serviceOneCameraSystem/serviceOneCameraSystem.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/serviceOneCameraSystem/serviceOneCameraSystem.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/serviceTwoAlertSystem/serviceTwoAlertSystem.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/serviceTwoAlertSystem/serviceTwoAlertSystem.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -365,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682183614494</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Final update to services and gui&#10;All services and gui work as expected">
+      <created>1682195366447</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682195366447</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -376,7 +382,8 @@
     <MESSAGE value="Services issues fixed - minor errors" />
     <MESSAGE value="GUI created" />
     <MESSAGE value="Updating services and GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating services and GUI" />
+    <MESSAGE value="Final update to services and gui&#10;All services and gui work as expected" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final update to services and gui&#10;All services and gui work as expected" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

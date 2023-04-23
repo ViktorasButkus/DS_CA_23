@@ -5,36 +5,52 @@ import com.proto.serviceTwo.ActivateAlertsResponse;
 import com.proto.serviceTwo.StreamAlertsRequest;
 import com.proto.serviceTwo.StreamAlertsResponse;
 import com.proto.serviceTwo.AlertSystemServiceGrpc;
+import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
 import java.util.Random;
 
 public class ServiceTwoServerImpl extends AlertSystemServiceGrpc.AlertSystemServiceImplBase {
 
-    //Unary - Alert is activated or deactivated
+    //BOTH RPC METHODS FOR SERVICE TWO ARE DEFINED HERE
+
+    //UNARY - Alert is activated or deactivated
     @Override
     public void activateAlerts(ActivateAlertsRequest request, StreamObserver<ActivateAlertsResponse> responseObserver) {
 
         String message;
         //If the checkbox is ticked it is true and alerts have been activated
-        //If checkbox is left unticked, it is fast and alerts have been deactivated
+        //If checkbox is left empty, it is false and alerts have been deactivated
         if (request.getActivate()) {
             message = "Alerts have been activated";
         } else {
             message = "Alerts have been deactivated";
         }
 
+        //No error handling required here as both scenarios (ticked and left empty) are covered
         //Setting up the response to send to the client
         responseObserver.onNext(ActivateAlertsResponse.newBuilder().setMessage(message).build());
         responseObserver.onCompleted();
     }
 
-    //server streaming
+    //SERVER STREAM - take in a location and send response that the location has an alert
     @Override
     public void streamAlerts(StreamAlertsRequest request, StreamObserver<StreamAlertsResponse> responseObserver) {
 
-        String location = request.getLocation();
 
+        //Error handling for if an unknown location is entered
+        if (!request.getLocation().equalsIgnoreCase("Door")
+                && !request.getLocation().equalsIgnoreCase("Window")
+                && !request.getLocation().equalsIgnoreCase("Garden")) {
+
+            responseObserver.onError(Status.INVALID_ARGUMENT
+                    .withDescription("Unknown Location: " + request.getLocation())
+                    .augmentDescription("Known locations are: Door, Window, Garden")
+                    .asRuntimeException());
+
+        }
+
+        String location = request.getLocation();
         // Start streaming alerts
         for (int i = 1; i <= 10; i++) {
             // Generate a random alert message
@@ -57,6 +73,7 @@ public class ServiceTwoServerImpl extends AlertSystemServiceGrpc.AlertSystemServ
     }
 
     // Helper method to generate a random alert message based on the location
+    //Using a random number generator to pick a number and based on that number, pick a message to send
     private String generateRandomAlertMessage(String location) {
         Random rand = new Random();
         int num = rand.nextInt(3);
