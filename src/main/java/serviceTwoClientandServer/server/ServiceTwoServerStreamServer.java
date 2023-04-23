@@ -9,12 +9,12 @@ import java.io.IOException;
 public class ServiceTwoServerStreamServer {
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        int port = 50058;
+        int port = 50050;
 
         //builds the server on the port specified above
         Server server = ServerBuilder
                 .forPort(port)
-                .addService(new serviceThreeServerImpl())
+                .addService(new ServiceTwoServerImpl())
                 .build();
 
         server.start();

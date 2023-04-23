@@ -42,14 +42,14 @@ public class ServiceTwoServerImpl extends AlertSystemServiceGrpc.AlertSystemServ
         for (int i = 1; i <= 5; i++) {
             // Generate a random alert message
             String alertMessage = generateRandomAlertMessage(location);
-            System.out.println(alertMessage);
+
             // Create the response message and send it to the client
             StreamAlertsResponse response = StreamAlertsResponse.newBuilder().setAlertMessage(alertMessage).build();
             responseObserver.onNext(response);
 
             // Sleep for some time before sending the next message
             try {
-                Thread.sleep(1000);
+                Thread.sleep(4000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -61,6 +61,7 @@ public class ServiceTwoServerImpl extends AlertSystemServiceGrpc.AlertSystemServ
 
     // Helper method to generate a random alert message based on the location
     //Using a random number generator to pick a number and based on that number, pick a message to send
+
     private String generateRandomAlertMessage(String location) {
         Random rand = new Random();
         int num = rand.nextInt(3);

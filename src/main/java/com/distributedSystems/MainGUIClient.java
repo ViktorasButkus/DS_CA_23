@@ -160,12 +160,12 @@ public class MainGUIClient implements ActionListener {
         panel.add(entry4);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
 
-        JButton streambutton = new JButton("Invoke Service 2 (Server Stream)");
-        streambutton.addActionListener(this);
-        panel.add(streambutton);
+        JButton button = new JButton("Invoke Service 2 (Server Stream)");
+        button.addActionListener(this);
+        panel.add(button);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
 
-        reply4 = new JTextArea(10, 20);
+        reply4 = new JTextArea(10, 10);
         reply4.setEditable(false);
         panel.add(reply4);
 
@@ -367,9 +367,9 @@ public class MainGUIClient implements ActionListener {
             reply3.setText(String.valueOf(response.getMessage()));
 
         } else if (label.equals("Invoke Service 2 (Server Stream)")) {
-            System.out.println("Service 2 Unary to be invoked ...");
+            System.out.println("Service 2 Server Stream to be invoked ...");
 
-            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50058).usePlaintext().build();
+            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50050).usePlaintext().build();
             AlertSystemServiceGrpc.AlertSystemServiceBlockingStub stub = AlertSystemServiceGrpc.newBlockingStub(channel);
 
             StreamAlertsRequest request = StreamAlertsRequest.newBuilder()
@@ -377,11 +377,10 @@ public class MainGUIClient implements ActionListener {
                     .build();
 
             // Call the server streaming RPC method
-            stub.streamAlerts(request).forEachRemaining(response -> {
-                reply4.setText(response.getAlertMessage());
+                stub.streamAlerts(request).forEachRemaining(response -> {
+                reply4.append(response.getAlertMessage());
 
             });
-
 
 
                 } else if (label.equals("Invoke Service 3 (Unary)")) {

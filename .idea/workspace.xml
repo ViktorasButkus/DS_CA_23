@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Server Changes">
+    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Small Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/distributedSystems/MainGUIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/distributedSystems/MainGUIClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/serverOneBiDirectionalServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/serverOneBiDirectionalServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeClientStreamServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeClientStreamServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerStreamServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerStreamServer.java" afterDir="false" />
     </list>
@@ -260,8 +254,8 @@
       <list>
         <item itemvalue="Application.MainGUIClient" />
         <item itemvalue="Gradle.DS_CA_23 [build]" />
-        <item itemvalue="Gradle.DS_CA_23 [generateProto]" />
         <item itemvalue="Gradle.DS_CA_23 [clean]" />
+        <item itemvalue="Gradle.DS_CA_23 [generateProto]" />
       </list>
     </recent_temporary>
   </component>
@@ -351,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682254407363</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Small Changes">
+      <created>1682262659283</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682262659283</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -365,7 +366,8 @@
     <MESSAGE value="Final update to services and gui&#10;All services and gui work as expected" />
     <MESSAGE value="Error handling and comments added &#10;Some changes to servers" />
     <MESSAGE value="Server Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Server Changes" />
+    <MESSAGE value="Small Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small Changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -376,5 +378,10 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="this" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
