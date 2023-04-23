@@ -9,7 +9,7 @@ import java.io.IOException;
 public class ServiceTwoServerStreamServer {
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        int port = 50055;
+        int port = 50058;
 
         //builds the server on the port specified above
         Server server = ServerBuilder
@@ -19,7 +19,7 @@ public class ServiceTwoServerStreamServer {
 
         server.start();
 
-        System.out.println("Server for Service Three has started");
+        System.out.println("Server for Service Two Server Stream has started");
         System.out.println("Listening on port " + port);
 
         //When shutdown is requested, run the code

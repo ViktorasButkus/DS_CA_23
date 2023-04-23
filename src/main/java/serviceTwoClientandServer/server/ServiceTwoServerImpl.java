@@ -37,25 +37,12 @@ public class ServiceTwoServerImpl extends AlertSystemServiceGrpc.AlertSystemServ
     @Override
     public void streamAlerts(StreamAlertsRequest request, StreamObserver<StreamAlertsResponse> responseObserver) {
 
-
-        //Error handling for if an unknown location is entered
-        if (!request.getLocation().equalsIgnoreCase("Door")
-                && !request.getLocation().equalsIgnoreCase("Window")
-                && !request.getLocation().equalsIgnoreCase("Garden")) {
-
-            responseObserver.onError(Status.INVALID_ARGUMENT
-                    .withDescription("Unknown Location: " + request.getLocation())
-                    .augmentDescription("Known locations are: Door, Window, Garden")
-                    .asRuntimeException());
-
-        }
-
         String location = request.getLocation();
         // Start streaming alerts
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 5; i++) {
             // Generate a random alert message
             String alertMessage = generateRandomAlertMessage(location);
-
+            System.out.println(alertMessage);
             // Create the response message and send it to the client
             StreamAlertsResponse response = StreamAlertsResponse.newBuilder().setAlertMessage(alertMessage).build();
             responseObserver.onNext(response);
@@ -87,4 +74,4 @@ public class ServiceTwoServerImpl extends AlertSystemServiceGrpc.AlertSystemServ
         }
 
     }
-}
+    }

@@ -20,7 +20,7 @@ public class ServiceThreeServer {
 
             server.start();
 
-            System.out.println("Server for Service Three has started");
+            System.out.println("Server for Service Three Unary has started");
             System.out.println("Listening on port " + port);
 
             //When shutdown is requested, run the code

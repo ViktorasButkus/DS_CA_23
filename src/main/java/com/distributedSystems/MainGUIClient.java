@@ -5,16 +5,21 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import com.proto.serviceOne.*;
 import com.proto.serviceThree.*;
 import com.proto.serviceTwo.*;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.StatusRuntimeException;
 import io.grpc.stub.StreamObserver;
 
 
@@ -32,7 +37,8 @@ public class MainGUIClient implements ActionListener {
     private JTextField reply3;
 
     //Service 2 - server stream - streamAlerts2
-    private JTextField entry4, reply4;
+    private JTextField entry4;
+    private JTextArea reply4;
 
     //Service 3 - unary - activateSensors
     private JCheckBox entry5;
@@ -43,7 +49,6 @@ public class MainGUIClient implements ActionListener {
     private JCheckBox entry7;
     private JCheckBox entry8;
     private JTextField reply6;
-
 
 
     //SERVICE 1 - CAMERA SYSTEM
@@ -88,6 +93,7 @@ public class MainGUIClient implements ActionListener {
         panel.add(zoomlabel);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
         entry2 = new JSlider(JSlider.HORIZONTAL, 0, 10, 5);
+
         entry2.setMajorTickSpacing(1);
         entry2.setPaintTicks(true);
         entry2.setPaintLabels(true);
@@ -105,8 +111,8 @@ public class MainGUIClient implements ActionListener {
         panel.add(reply2);
 
         panel.setLayout(boxlayout);
-
         return panel;
+
     }
 
     //SERVICE 2 - ALERT SYSTEM
@@ -154,12 +160,12 @@ public class MainGUIClient implements ActionListener {
         panel.add(entry4);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
 
-        JButton button = new JButton("Invoke Service 2 (Server Stream)");
-        button.addActionListener(this);
-        panel.add(button);
+        JButton streambutton = new JButton("Invoke Service 2 (Server Stream)");
+        streambutton.addActionListener(this);
+        panel.add(streambutton);
         panel.add(Box.createRigidArea(new Dimension(10, 0)));
 
-        reply4 = new JTextField("", 10);
+        reply4 = new JTextArea(10, 20);
         reply4.setEditable(false);
         panel.add(reply4);
 
@@ -346,15 +352,13 @@ public class MainGUIClient implements ActionListener {
             stream.onCompleted();
 
 
-
-
         } else if (label.equals("Invoke Service 2 (Unary)")) {
             System.out.println("Service 2 Unary to be invoked ...");
 
             ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50052).usePlaintext().build();
             AlertSystemServiceGrpc.AlertSystemServiceBlockingStub stub = AlertSystemServiceGrpc.newBlockingStub(channel);
 
-           //preparing message to send
+            //preparing message to send
             ActivateAlertsRequest request = ActivateAlertsRequest.newBuilder().setActivate(entry3.isSelected()).build();
 
             //retrieving reply from service
@@ -365,7 +369,7 @@ public class MainGUIClient implements ActionListener {
         } else if (label.equals("Invoke Service 2 (Server Stream)")) {
             System.out.println("Service 2 Unary to be invoked ...");
 
-            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50055).usePlaintext().build();
+            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50058).usePlaintext().build();
             AlertSystemServiceGrpc.AlertSystemServiceBlockingStub stub = AlertSystemServiceGrpc.newBlockingStub(channel);
 
             StreamAlertsRequest request = StreamAlertsRequest.newBuilder()
@@ -379,71 +383,72 @@ public class MainGUIClient implements ActionListener {
             });
 
 
-        } else if (label.equals("Invoke Service 3 (Unary)")) {
-            System.out.println("Service 3 Unary to be invoked ...");
 
-            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50053).usePlaintext().build();
-            SensorSystemServiceGrpc.SensorSystemServiceBlockingStub stub = SensorSystemServiceGrpc.newBlockingStub(channel);
+                } else if (label.equals("Invoke Service 3 (Unary)")) {
+                    System.out.println("Service 3 Unary to be invoked ...");
 
-            //preparing message to send
-            ActivateSensorsRequest request = ActivateSensorsRequest.newBuilder().setActivate(entry5.isSelected()).build();
+                    ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50053).usePlaintext().build();
+                    SensorSystemServiceGrpc.SensorSystemServiceBlockingStub stub = SensorSystemServiceGrpc.newBlockingStub(channel);
 
-            //retrieving reply from service
-            ActivateSensorsResponse response = stub.activateSensors(request);
+                    //preparing message to send
+                    ActivateSensorsRequest request = ActivateSensorsRequest.newBuilder().setActivate(entry5.isSelected()).build();
 
-            reply5.setText(response.getMessage());
+                    //retrieving reply from service
+                    ActivateSensorsResponse response = stub.activateSensors(request);
 
-
-        } else if (label.equals("Invoke Service 3 (Client Stream)")) {
-            System.out.println("Service 3 Client Stream to be invoked ...");
-
-            ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50056).usePlaintext().build();
-            SensorSystemServiceGrpc.SensorSystemServiceStub stub = SensorSystemServiceGrpc.newStub(channel);
-
-            // Get the state of the three checkboxes
-            boolean sensor1Activate = entry6.isSelected();
-            boolean sensor2Activate= entry7.isSelected();
-            boolean sensor3Activate = entry8.isSelected();
+                    reply5.setText(response.getMessage());
 
 
-            //preparing message to send
-            DetectMotionRequest request = DetectMotionRequest.newBuilder()
-                    .setSensor1Activated(sensor1Activate)
-                    .setSensor2Activated(sensor2Activate)
-                    .setSensor3Activated(sensor3Activate)
-                    .build();
+                } else if (label.equals("Invoke Service 3 (Client Stream)")) {
+                    System.out.println("Service 3 Client Stream to be invoked ...");
 
-            //retrieving reply from service
-            CountDownLatch latch = new CountDownLatch(1);
-            StreamObserver<DetectMotionRequest> stream = stub.detectMotion(new StreamObserver<>() {
+                    ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50056).usePlaintext().build();
+                    SensorSystemServiceGrpc.SensorSystemServiceStub stub = SensorSystemServiceGrpc.newStub(channel);
+
+                    // Get the state of the three checkboxes
+                    boolean sensor1Activate = entry6.isSelected();
+                    boolean sensor2Activate = entry7.isSelected();
+                    boolean sensor3Activate = entry8.isSelected();
 
 
-                @Override
-                public void onNext(DetectMotionResponse response) {
+                    //preparing message to send
+                    DetectMotionRequest request = DetectMotionRequest.newBuilder()
+                            .setSensor1Activated(sensor1Activate)
+                            .setSensor2Activated(sensor2Activate)
+                            .setSensor3Activated(sensor3Activate)
+                            .build();
 
-                    reply6.setText(response.getAlertMessage());
+                    //retrieving reply from service
+                    CountDownLatch latch = new CountDownLatch(1);
+                    StreamObserver<DetectMotionRequest> stream = stub.detectMotion(new StreamObserver<>() {
+
+
+                        @Override
+                        public void onNext(DetectMotionResponse response) {
+
+                            reply6.setText(response.getAlertMessage());
+
+                        }
+
+                        @Override
+                        public void onError(Throwable t) {
+                        }
+
+                        @Override
+                        public void onCompleted() {
+                            latch.countDown();
+
+
+                        }
+                    });
+                    stream.onNext(request);
+                    stream.onCompleted();
+                    try {
+                        latch.await(3, TimeUnit.SECONDS);
+                    } catch (InterruptedException ex) {
+                        throw new RuntimeException(ex);
+                    }
 
                 }
-
-                @Override
-                public void onError(Throwable t) {
-                }
-
-                @Override
-                public void onCompleted() {
-                    latch.countDown();
-
-
-                }
-            });
-            stream.onNext(request);
-            stream.onCompleted();
-            try {
-                latch.await(3, TimeUnit.SECONDS);
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
             }
-
-        }
     }
-}

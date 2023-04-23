@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Error handling and comments added &#10;Some changes to servers">
-      <change afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeClientStreamServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerStreamServer.java" afterDir="false" />
+    <list default="true" id="6cc68951-eb85-4d52-8a87-7502f4315746" name="Changes" comment="Server Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/distributedSystems/MainGUIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/distributedSystems/MainGUIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/ServiceOneServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/serverOneBiDirectionalServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceOneClientAndServer/server/serverOneBiDirectionalServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeClientStreamServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeClientStreamServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceThreeClientAndServer/server/ServiceThreeServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerStreamServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/serviceTwoClientandServer/server/ServiceTwoServerStreamServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +113,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Service2ServerUnary">
+  <component name="RunManager" selected="Application.MainGUIClient">
     <configuration name="MainGUIClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.distributedSystems.MainGUIClient" />
       <module name="DS_CA_23.main" />
@@ -118,15 +123,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerThree" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="serviceThreeClientAndServer.server.ServiceThreeServer" />
-      <module name="DS_CA_23.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -149,10 +145,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Service2ServerStream" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="serviceTwoClientandServer.server.ServiceTwoServerStreamServer" />
+      <module name="DS_CA_23.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Service2ServerUnary" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="serviceTwoClientandServer.server.ServiceTwoServer" />
+      <module name="DS_CA_23.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Service3ServerClientStream" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="serviceThreeClientAndServer.server.ServiceThreeClientStreamServer" />
+      <module name="DS_CA_23.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Service3ServerUnary" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="serviceThreeClientAndServer.server.ServiceThreeServer" />
       <module name="DS_CA_23.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -223,8 +246,10 @@
     </configuration>
     <list>
       <item itemvalue="Application.Service2ServerUnary" />
-      <item itemvalue="Application.ServerThree" />
+      <item itemvalue="Application.Service2ServerStream" />
+      <item itemvalue="Application.Service3ServerUnary" />
       <item itemvalue="Application.Service1ServerUnary" />
+      <item itemvalue="Application.Service3ServerClientStream" />
       <item itemvalue="Application.Service1ServerBiDirectional" />
       <item itemvalue="Application.MainGUIClient" />
       <item itemvalue="Gradle.DS_CA_23 [build]" />
@@ -233,8 +258,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DS_CA_23 [build]" />
         <item itemvalue="Application.MainGUIClient" />
+        <item itemvalue="Gradle.DS_CA_23 [build]" />
         <item itemvalue="Gradle.DS_CA_23 [generateProto]" />
         <item itemvalue="Gradle.DS_CA_23 [clean]" />
       </list>
@@ -319,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682238894918</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Server Changes">
+      <created>1682254407363</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682254407363</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -332,7 +364,8 @@
     <MESSAGE value="Updating services and GUI" />
     <MESSAGE value="Final update to services and gui&#10;All services and gui work as expected" />
     <MESSAGE value="Error handling and comments added &#10;Some changes to servers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Error handling and comments added &#10;Some changes to servers" />
+    <MESSAGE value="Server Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Server Changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
