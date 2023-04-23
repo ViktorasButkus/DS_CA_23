@@ -4,12 +4,11 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
 import com.proto.serviceOne.*;
 import com.proto.serviceThree.*;
 import com.proto.serviceTwo.*;
@@ -17,7 +16,7 @@ import com.proto.serviceTwo.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
-import org.w3c.dom.ls.LSOutput;
+
 
 public class MainGUIClient implements ActionListener {
 
@@ -25,7 +24,6 @@ public class MainGUIClient implements ActionListener {
     private JTextField entry1, reply1;
 
     //Service 1 - bidirectional - streamMotionEvents
-
     private JSlider entry2;
     private JTextField reply2;
 
@@ -41,15 +39,15 @@ public class MainGUIClient implements ActionListener {
     private JTextField reply5;
 
     //Service 3 - client stream - detectMotion
-
     private JCheckBox entry6;
     private JCheckBox entry7;
     private JCheckBox entry8;
     private JTextField reply6;
 
 
+
     //SERVICE 1 - CAMERA SYSTEM
-    //UNARY METHOD - TAKE PICTURE (use of strings to simulate pictures)
+    //UNARY METHOD
     private JPanel getService1UnaryJPanel() {
 
         JPanel panel = new JPanel();
@@ -79,7 +77,7 @@ public class MainGUIClient implements ActionListener {
     }
 
     //SERVICE 1 - CAMERA SYSTEM
-    //BIDIRECTIONAL STREAMING - STREAM MOTION EVENTS (will use strings to describe motion events)
+    //BIDIRECTIONAL STREAMING
     private JPanel getService1BidirectionalJPanel() {
 
         JPanel panel = new JPanel();
@@ -112,7 +110,7 @@ public class MainGUIClient implements ActionListener {
     }
 
     //SERVICE 2 - ALERT SYSTEM
-    //UNARY METHOD - ACTIVATE ALERTS (to simulate - activate with y/n, message to say activated/deactivated)
+    //UNARY METHOD
     private JPanel getService2UnaryJPanel() {
 
         JPanel panel = new JPanel();
@@ -142,7 +140,7 @@ public class MainGUIClient implements ActionListener {
     }
 
     //SERVICE 2 - ALERT SYSTEM
-    //SERVER STREAMING - STREAM ALERTS (to simulate - message to specify which alert)
+    //SERVER STREAMING
     private JPanel getService2ServerStreamJPanel() {
 
         JPanel panel = new JPanel();
@@ -173,7 +171,7 @@ public class MainGUIClient implements ActionListener {
 
 
     //SERVICE 3 - SENSOR SYSTEM
-    //UNARY METHOD - ACTIVATE SENSORS (to simulate - activate with y/n, message to say activated/deactivated)
+    //UNARY METHOD
     private JPanel getService3UnaryJPanel() {
 
         JPanel panel = new JPanel();
@@ -202,7 +200,7 @@ public class MainGUIClient implements ActionListener {
     }
 
     //SERVICE 3 - SENSOR SYSTEM
-    //CLIENT STREAMING - DETECT MOTION (to simulate - motion detected true/false, message to specify sensor activated)
+    //CLIENT STREAMING
     private JPanel getService3ClientStreamJPanel() {
 
         JPanel panel = new JPanel();
@@ -244,12 +242,15 @@ public class MainGUIClient implements ActionListener {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
 
         MainGUIClient gui = new MainGUIClient();
 
         gui.build();
+
     }
+
 
     private void build() {
 
